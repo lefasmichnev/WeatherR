@@ -7,3 +7,4 @@ test('renders learn react link', () => {
   expect(linkElement).toBeInTheDocument();
 });
 // стандартные вещи при создании не стал убирать и редачить по читабельности как уже писал в public/index.html
+// Тестирования тут нету. Так что можно убрать

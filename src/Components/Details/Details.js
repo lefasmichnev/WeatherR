@@ -9,7 +9,7 @@ function Details({ details }) {
   const humidity = details.humidity + "%";
   const visibility = details.visibility / 1000 + " км";
   const pressure = (details.pressure * 0.750064).toFixed(2) + " мм";
-  const wind = " " + Math.round(details.wind_speed) + " м/с";
+  const wind = " " + Math.round(details.wind_speed) + " м/с"; // чтобы не прописывать вручную пробелы используй шаблонные строки `${wind} м/с`
 
   let sunriseDate = new Date(details.sunrise * 1000);
   let sunDateRise = sunriseDate.getHours() + ":" + sunriseDate.getMinutes();

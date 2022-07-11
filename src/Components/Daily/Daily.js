@@ -3,7 +3,7 @@ import Day from "../Day/Day";
 import "./index.css";
 
 function Daily({ daily }) {
-  if (!Daily.length) {
+  if (!Daily.length) { // Ты проверяешь длину у компоненты, а не у массива daily
     return null;
   }
 
