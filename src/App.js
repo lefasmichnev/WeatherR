@@ -11,11 +11,14 @@ const API_key = "1205b526194480e63526d3ecc0e98d5d";
 
 const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${API_key}&lang=ru&units=metric`;
 
+// В отдельный файл константы
+
 function App(props) {
   const [daily, setdaily] = useState([]);
   const [details, setdetails] = useState("Пусто");
 
   useEffect(() => {
+    // Убери логику запросы из компоненты
     const fetchData = async () => {
       const response = await fetch(url);
 

@@ -2,7 +2,7 @@ import React from "react";
 import "./index.css";
 
 function Day({ tempDay, tempNight, dt, icon }) {
-  let myDate = new Date(dt * 1000);
+  let myDate = new Date(dt * 1000); // не изменяемые переменные const
   let checkDate = new Date();
   let toDay = `${myDate.getDate()}.${
     myDate.getMonth() + 1
@@ -10,6 +10,15 @@ function Day({ tempDay, tempNight, dt, icon }) {
   let dayName = myDate.getDay();
 
   const correctIcon = `http://openweathermap.org/img/wn/${icon}@2x.png`; // нашел ток так как сделать чтобы нормально заполняло с сайта, хотя думал взять в src и выцепить картинки с сайта, но не разобрался(
+  
+  // вместо switch лучше использовать dictionary
+
+  // const dictionary = {
+  //   0: Вс,
+  //   // ...
+  // };
+
+  // <span className="Day_dayName">{dictionary[dayName]}</span>
 
   switch (dayName) {
     case 0:
@@ -35,7 +44,7 @@ function Day({ tempDay, tempNight, dt, icon }) {
       break;
   }
 
-  if (checkDate.getDate() == myDate.getDate()) {
+  if (checkDate.getDate() == myDate.getDate()) { // Лучше везде использовать строгое сравнение ===
     toDay = "Сегодня";
   }
 
@@ -55,7 +64,8 @@ function Day({ tempDay, tempNight, dt, icon }) {
         <span className="Day_title">{toDay}</span>
         <span className="Day_dayName">{dayName}</span>
       </div>
-      <img src={correctIcon}></img>
+      {/* alt важный атрибут у img и если тег не содержит текста или компоненты, его необходимо закрывать  <img ... />  */}
+      <img src={correctIcon}></img> 
       <div className="Day_temp">
         <span className="DayC_temp">{Math.round(tempDay)}°</span>
         <span className="Night_temp">{Math.round(tempNight)}°</span>
